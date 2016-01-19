@@ -49,7 +49,7 @@ public class EntityHorse extends EntityAnimal implements IInvBasic {
             return this.a((Entity) p_apply_1_);
         }
     };
-    private static final IAttribute br = (new RangedAttribute((IAttribute) null, "horse.jumpStrength", 0.7D, 0.0D, 2.0D)).a("Jump Strength").a(true);
+    public static final IAttribute br = (new RangedAttribute((IAttribute) null, "horse.jumpStrength", 0.7D, 0.0D, 2.0D)).a("Jump Strength").a(true); // CanaryMod: private => public
     private static final String[] bs = new String[]{null, "textures/entity/horse/armor/horse_armor_iron.png", "textures/entity/horse/armor/horse_armor_gold.png", "textures/entity/horse/armor/horse_armor_diamond.png"};
     private static final String[] bt = new String[]{"", "meo", "goo", "dio"};
     private static final int[] bu = new int[]{0, 5, 7, 11};
