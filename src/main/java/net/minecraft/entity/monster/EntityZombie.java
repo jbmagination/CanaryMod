@@ -34,7 +34,7 @@ import java.util.UUID;
 
 public class EntityZombie extends EntityMob {
 
-    protected static final IAttribute b = (new RangedAttribute((IAttribute) null, "zombie.spawnReinforcements", 0.0D, 0.0D, 1.0D)).a("Spawn Reinforcements Chance");
+    public static final IAttribute b = (new RangedAttribute((IAttribute) null, "zombie.spawnReinforcements", 0.0D, 0.0D, 1.0D)).a("Spawn Reinforcements Chance"); // CanaryMod: protected => public
     private static final UUID c = UUID.fromString("B9766B59-9566-4402-BC1F-2EE2A276D836");
     private static final AttributeModifier bk = new AttributeModifier(c, "Baby speed boost", 0.5D, 1);
     private final EntityAIBreakDoor bl = new EntityAIBreakDoor(this);
