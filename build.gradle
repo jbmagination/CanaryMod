@@ -24,7 +24,7 @@ targetCompatibility = '1.6'
 
 group = 'net.canarymod'
 archivesBaseName = 'CanaryMod'
-version = '1.8.0-' + libVersion
+version = "1.8.0-$libVersion"
 
 configurations {
     deployerJars
@@ -34,7 +34,7 @@ repositories {
     mavenCentral()
     maven {
         name = 'Visual Illusions Repository'
-        url = 'http://repo.visualillusionsent.net/repository/public/'
+        url = 'http://nexus.visualillusionsent.net/content/groups/public/'
     }
     maven {
         name = 'Minecraft Libraries'
@@ -65,32 +65,6 @@ shadowJar {
     exclude 'META-INF/*.DSA'
     exclude 'META-INF/*.RSA'
     relocate 'org.mcstats', 'net.canarymod.metrics'
-    dependencies {
-        // Minecraft server
-        include(dependency('net.minecraft:server'))
-        include(dependency('com.google.code.gson:gson'))
-        include(dependency('commons-codec:commons-codec'))
-        include(dependency('commons-io:commons-io'))
-        include(dependency('io.netty:netty-all'))
-        include(dependency('net.sf.trove4j:trove4j'))
-        include(dependency('org.apache.commons:commons-lang3'))
-        include(dependency('org.apache.logging.log4j:log4j-api'))
-        include(dependency('org.apache.logging.log4j:log4j-core'))
-
-        // CanaryLib
-        include(dependency('net.canarymod:CanaryLib'))
-        include(dependency('net.visualillusionsent:viutils'))
-        include(dependency('org.jdom:jdom2'))
-        include(dependency('com.mchange:c3p0'))
-        include(dependency('org.apache.logging.log4j:log4j-api'))
-        include(dependency('com.google.guava:guava'))
-        include(dependency('com.mojang:authlib'))
-        include(dependency('com.googlecode.json-simple:json-simple'))
-        include(dependency('org.mcstats.standalone:metrics'))
-
-        // CanaryMod
-        include(dependency('jline:jline'))
-    }
     classifier 'shaded'
 }
 assemble.dependsOn shadowJar
@@ -114,7 +88,7 @@ jar {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.4'
+    gradleVersion = '2.10'
 }
 
 uploadArchives {
