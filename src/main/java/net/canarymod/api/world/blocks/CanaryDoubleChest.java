@@ -80,6 +80,27 @@ public class CanaryDoubleChest extends CanaryChest implements DoubleChest {
             }
         }
     }
+    
+    @Override
+    public int getSize() { // Override so both inventories are read
+        return largechest.a();
+    }
+
+    @Override
+    public Item getSlot(int index) {  // Override so both inventories are read
+        ItemStack stack = largechest.a(index);
+        if (stack != null) {
+            Item slot_item = stack.getCanaryItem();
+            slot_item.setSlot(index);
+            return slot_item;
+        }
+        return null;
+    }
+
+    @Override
+    public void setSlot(int index, Item value) {  // Override so both inventories are read
+        this.largechest.a(index, value == null ? null : ((CanaryItem) value).getHandle());
+    }
 
     /**
      * Gets the TileEntityChest part A
