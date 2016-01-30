@@ -79,8 +79,8 @@ public class CanaryDoubleChest extends CanaryChest implements DoubleChest {
                 stacksB[index - aSize] = stacks[index];
             }
         }
-        System.arraycopy(stacksA, 0, getHandleA().m, 0, getSize());
-        System.arraycopy(stacksB, 0, getHandleB().m, 0, getSize());
+        System.arraycopy(stacksA, 0, getHandleA().m, 0, aSize);
+        System.arraycopy(stacksB, 0, getHandleB().m, 0, bSize);
     }
     
     @Override
