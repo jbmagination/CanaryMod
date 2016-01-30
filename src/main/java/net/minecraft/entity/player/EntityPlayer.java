@@ -1037,14 +1037,17 @@ public abstract class EntityPlayer extends EntityLivingBase {
                         }
 
                         if (flag0) {
+                            // Critical Hit
                             this.b(entity);
                         }
 
                         if (f1 > 0.0F) {
+                            // Enchantment Critical
                             this.c(entity);
                         }
 
                         if (f0 >= 18.0F) {
+                            // Over kill
                             this.b((StatBase)AchievementList.F);
                         }
 

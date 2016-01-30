@@ -113,7 +113,7 @@ public class CanaryChest extends CanaryLockableTileEntity implements Chest {
      */
     @Override
     public void setContents(Item[] items) {
-        System.arraycopy(CanaryItem.itemArrayToStackArray(items), 0, getTileEntity().f, 0, getSize());
+        System.arraycopy(CanaryItem.itemArrayToStackArray(items), 0, getTileEntity().m, 0, getSize());
     }
 
     /**
