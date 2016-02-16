@@ -19,7 +19,7 @@ import java.util.concurrent.Callable;
 public class NBTTagCompound extends NBTBase {
 
     private static final Logger b = LogManager.getLogger();
-    private Map c = Maps.newHashMap();
+    public Map c = Maps.newHashMap(); // CanaryMod: private => public
 
     void a(DataOutput dataoutput) throws IOException {
         Iterator iterator = this.c.keySet().iterator();

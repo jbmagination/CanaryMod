@@ -40,7 +40,7 @@ public class CanaryCompoundTag extends CanaryBaseTag<CompoundTag> implements Com
     @Override
     public Collection<BaseTag> values() {
         Collection<BaseTag> values = new ArrayList<BaseTag>();
-        for (NBTBase tag : (Collection<NBTBase>)getHandle().c()) {
+        for (NBTBase tag : (Collection<NBTBase>)getHandle().c.values()) {
             values.add(CanaryBaseTag.wrap(tag));
         }
         return values;
