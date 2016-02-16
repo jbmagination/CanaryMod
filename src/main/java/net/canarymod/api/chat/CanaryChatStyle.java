@@ -182,7 +182,7 @@ public class CanaryChatStyle implements ChatStyle {
      */
     @Override
     public ChatStyle getParentStyle() {
-        return getNative().n() != null ? getNative().n().getWrapper() : null;
+        return getNative().o() != null ? getNative().o().getWrapper() : null;
     }
 
     @Override
