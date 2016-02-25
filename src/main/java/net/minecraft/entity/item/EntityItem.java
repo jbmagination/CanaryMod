@@ -79,7 +79,7 @@ public class EntityItem extends Entity {
                 --this.d;
             }
 
-            boolean tmpTouch = this.D; // CanaryMod
+            boolean tmpTouch = this.C; // CanaryMod
 
             this.p = this.s;
             this.q = this.t;
