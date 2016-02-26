@@ -190,7 +190,7 @@ public class CanaryCommandBlock extends CanaryTileEntity implements CommandBlock
      */
     @Override
     public void activate() {
-        getTileEntity().a(((CanaryWorld) getWorld()).getHandle());
+        getLogic().a(((CanaryWorld) getWorld()).getHandle());
     }
 
     /**
