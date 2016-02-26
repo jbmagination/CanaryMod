@@ -37,48 +37,26 @@ public class CanaryChest extends CanaryLockableTileEntity implements Chest {
 
     @Override
     public boolean hasAttachedChest() {
-        Block block = getBlock();
-        DoubleChest result;
-
-        result = tryAttachedChest(block, BlockFace.NORTH);
-        if (result != null) {
-            return true;
-        }
-
-        result = tryAttachedChest(block, BlockFace.SOUTH);
-        if (result != null) {
-            return true;
-        }
-
-        result = tryAttachedChest(block, BlockFace.EAST);
-        if (result != null) {
-            return true;
-        }
-
-        result = tryAttachedChest(block, BlockFace.WEST);
-        if (result != null) {
-            return true;
-        }
-        return false;
+        getTileEntity().m(); // SAFETY CHECK
+        return getTileEntity().f != null && getTileEntity().g != null &&
+                getTileEntity().h != null && getTileEntity().i != null;
     }
 
-    private DoubleChest tryAttachedChest(Block origin, BlockFace face) {
-        Block block = origin.getFacingBlock(face);
-
-        if (block == null) {
+    @Override
+    public DoubleChest getDoubleChest() {
+        if(!hasAttachedChest()) {
             return null;
         }
-        if (block.getType() == BlockType.Chest) {
-            TileEntity cblock = getWorld().getOnlyTileEntity(block);
-
-            if ((cblock != null) && (cblock instanceof Chest)) {
-                Chest chest = (Chest)cblock;
-
-                return new CanaryDoubleChest(new InventoryLargeChest(getInventoryName(), (ILockableContainer)this.inventory, (ILockableContainer)((CanaryChest)chest).getInventoryHandle()));
-            }
+        if(getTileEntity().f != null) {
+            return new CanaryDoubleChest(new InventoryLargeChest("container.chestDouble", getTileEntity().f, getTileEntity()));
         }
-
-        return null;
+        if(getTileEntity().h != null) {
+            return new CanaryDoubleChest(new InventoryLargeChest("container.chestDouble", getTileEntity().h, getTileEntity()));
+        }
+        if(getTileEntity().g != null) {
+            return new CanaryDoubleChest(new InventoryLargeChest("container.chestDouble", getTileEntity(), getTileEntity().g));
+        }
+        return new CanaryDoubleChest(new InventoryLargeChest("container.chestDouble", getTileEntity(), getTileEntity().i));
     }
 
     /**
@@ -130,31 +108,5 @@ public class CanaryChest extends CanaryLockableTileEntity implements Chest {
     @Override
     public TileEntityChest getTileEntity() {
         return (TileEntityChest)tileentity;
-    }
-
-    @Override
-    public DoubleChest getDoubleChest() {
-        DoubleChest chest;
-
-        chest = tryAttachedChest(getBlock(), BlockFace.NORTH);
-        if (chest != null) {
-            return chest;
-        }
-
-        chest = tryAttachedChest(getBlock(), BlockFace.SOUTH);
-        if (chest != null) {
-            return chest;
-        }
-
-        chest = tryAttachedChest(getBlock(), BlockFace.EAST);
-        if (chest != null) {
-            return chest;
-        }
-
-        chest = tryAttachedChest(getBlock(), BlockFace.WEST);
-        if (chest != null) {
-            return chest;
-        }
-        return null;
     }
 }
