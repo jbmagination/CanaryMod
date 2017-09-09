@@ -603,7 +603,8 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IPlay
             this.r.b().a(agameprofile);
         }
 
-        if (this.y % 900 == 0) {
+        // if (this.y % 900 == 0) { // CanaryMod: use world auto-save interval from config
+        if (this.y % Configuration.getServerConfig().getWorldAutoSaveInterval() == 0) {
             this.b.a("save");
             this.v.k();
             this.a(true);
